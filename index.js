@@ -27,7 +27,7 @@ connectDB();
 const app = express();
 
 const corOptions = {
-  origin: process.env.ALLOW_ORIGIN,
+  origin: [process.env.ALLOW_ORIGIN, process.env.ALLOW_ORGIN_LOCAL],
   optionsSuccessStatus: 200,
 };
 
