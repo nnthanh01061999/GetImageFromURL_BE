@@ -7,7 +7,7 @@
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index",
-    "build": "netlify-lambda build"
+    "build": "./node_modules/.bin/netlify-lambda build index"
   },
   "author": "",
   "license": "ISC",
