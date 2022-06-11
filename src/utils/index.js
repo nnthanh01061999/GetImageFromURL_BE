@@ -46,7 +46,7 @@ const extractHostname = (url) => {
                   clearInterval(timer);
                   resolve();
               }
-          }, 75);
+          }, 100);
       });
   });
 }
