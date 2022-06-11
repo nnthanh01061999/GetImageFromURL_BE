@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
     if (url) {
       const browser = await puppeteer.launch({
         headless: true,
-        args: ["--disable-setuid-sandbox"],
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
         ignoreHTTPSErrors: true,
       });
       try {
@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
         await page.goto(url, {
           waitUntil: "networkidle2",
         });
-        await autoScroll(page, 100)
+        await autoScroll(page, 100);
         imgs = await page.evaluate(() => {
           let titleLinks = document.querySelectorAll("img");
           titleLinks = [...titleLinks];
@@ -50,7 +50,10 @@ router.post("/", async (req, res) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ success: false, message: "Something went wrong!" + error.message });;
+      .json({
+        success: false,
+        message: "Something went wrong!" + error.message,
+      });
   }
 });
 
