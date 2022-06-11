@@ -17,6 +17,7 @@ router.post("/", async (req, res) => {
         headless: true,
         args: ["--no-sandbox", "--disable-setuid-sandbox"],
         ignoreHTTPSErrors: true,
+        ignoreDefaultArgs: ['--disable-extensions']
       });
       try {
         const page = await browser.newPage();
